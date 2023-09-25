@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Favorite regions
-//
-//  Created by Ksenia Petrova on 23.09.2023.
-//
-
 import UIKit
 
 @main
