@@ -85,6 +85,6 @@ final class DetailViewModel {
         if index < images.count {
             return images[index]
         }
-        return UIImage(systemName: "heart")!
+        return UIImage()
     }
 }

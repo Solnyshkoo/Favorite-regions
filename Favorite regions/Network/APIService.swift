@@ -72,6 +72,7 @@ class APIService {
         session.resume()
     }
     
+    // можно ещё так загрузить картинки
     func loadPicture(url: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: url) else {
             return

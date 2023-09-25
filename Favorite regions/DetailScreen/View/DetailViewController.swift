@@ -63,6 +63,7 @@ final class DetailViewController: UIViewController {
         tableView.dataSource = self
         tableView.dataSource = self
         tableView.rowHeight = 160
+        tableView.allowsSelection = false
         tableView.separatorColor = .clear
         tableView.register(RegionPhotoCell.self, forCellReuseIdentifier: RegionPhotoCell.reuseIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -121,6 +122,7 @@ extension DetailViewController: DetailViewModelDelegate {
                 guard let self = self else { return }
                 self.loadingView.stopAnimating()
                 self.setUpTableView()
+                self.tableView.reloadData()
             }
         case .none:
             break
@@ -152,9 +154,5 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.config(view: data)
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        250
     }
 }
