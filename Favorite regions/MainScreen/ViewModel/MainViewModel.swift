@@ -8,11 +8,11 @@ final class MainViewModel {
             getData()
         }
     }
-    
+
     private let service: APIService
-    
+
     private var regionsInfo = [RegionInfo]()
-    
+
     private var state: ScreenState {
         didSet {
             switch state {
@@ -27,7 +27,7 @@ final class MainViewModel {
             }
         }
     }
-    
+
     // MARK: - Init
 
     required init(service: APIService) {
@@ -41,7 +41,7 @@ final class MainViewModel {
         state = .loading
         updateData()
     }
-    
+
     func updateData() {
         service.loadMovies { [weak self] result in
             guard let self = self else {
@@ -56,11 +56,11 @@ final class MainViewModel {
             }
         }
     }
-    
+
     func updateLikes(index: Int) {
         regionsInfo[index].overview.isLike = !regionsInfo[index].overview.isLike
     }
-    
+
     // MARK: - Get data
 
     func getCount() -> Int {
@@ -70,7 +70,7 @@ final class MainViewModel {
     func getRegionOverview(index: Int) -> RegionOverview {
         return regionsInfo[index].overview
     }
-    
+
     // MARK: - Open new screen
 
     func configDetailView(index: Int) {

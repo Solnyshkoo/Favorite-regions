@@ -5,6 +5,8 @@ protocol DetailInfoViewDelegate: AnyObject {
 }
 
 final class DetailInfoView: UIView {
+    // MARK: - Properties
+
     weak var delegate: DetailInfoViewDelegate?
     
     private let title: UILabel = {
@@ -40,7 +42,7 @@ final class DetailInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupCell()
+        setUpCell()
         like.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectLike)))
     }
     
@@ -49,6 +51,8 @@ final class DetailInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Config
+
     func config(info: DetailInfo, delegate: DetailInfoViewDelegate) {
         title.text = info.title
         viewsCount.text = "Просмотры: " + info.viewCounts.description
@@ -63,6 +67,8 @@ final class DetailInfoView: UIView {
         }
     }
     
+    // MARK: - Like action
+
     @objc func selectLike(gestureRecognizer: UITapGestureRecognizer) {
         delegate?.likeActoin()
         if like.tag == 0 {
@@ -74,7 +80,9 @@ final class DetailInfoView: UIView {
         }
     }
     
-    private func setupCell() {
+    // MARK: - Set up cell
+
+    private func setUpCell() {
         addSubview(title)
         addSubview(like)
         addSubview(viewsCount)

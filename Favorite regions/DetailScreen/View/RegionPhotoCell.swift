@@ -1,6 +1,8 @@
 import UIKit
 
 final class RegionPhotoCell: UITableViewCell {
+    // MARK: - Properties
+
     static let reuseIdentifier = "RegionPhotoCell"
     
     private let photo: UIImageView = {
@@ -26,6 +28,8 @@ final class RegionPhotoCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Set up cell
+
     private func setupCell() {
         contentView.addSubview(photo)
         NSLayoutConstraint.activate([
