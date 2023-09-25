@@ -20,7 +20,7 @@ final class RegionPhotoCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupCell()
+        setUpCell()
     }
     
     @available(*, unavailable)
@@ -30,7 +30,7 @@ final class RegionPhotoCell: UITableViewCell {
     
     // MARK: - Set up cell
 
-    private func setupCell() {
+    private func setUpCell() {
         contentView.addSubview(photo)
         NSLayoutConstraint.activate([
             photo.leadingAnchor.constraint(equalTo: leadingAnchor),
